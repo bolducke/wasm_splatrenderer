@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "script"
+version = "0.1.0"
+description = ""
+authors = ["Karl-Étienne Bolduc <karl-etienne.bolduc@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+plyfile = "^1.0.3"
+numpy = "^1.26.4"
+matplotlib = "^3.8.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
