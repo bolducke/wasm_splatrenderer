@@ -55,8 +55,9 @@ void main() {
         gl_Position = vec4(0.,0.,0.,1.);
         return;
     }
+
     xk = x_clip.xyz / x_clip.w; // Clip to NDC Space
-    if (xk.x < -1. || xk.x > 1. || xk.y < -1. || xk.y > 1.) {
+    if (xk.x < -1.2 || xk.x > 1.2 || xk.y < -1.2 || xk.y > 1.2) {
         gl_Position = vec4(0.,0.,0.,1.);
         return;
     }
@@ -83,7 +84,7 @@ void main() {
     //
 
     // Use 3blue1brown trick to compute the eigenvalues of a 2x2 matrix.
-    float p = determinant(V);
+    float p = determinant(V_hat);
     float m = 0.5 * (V_hat[0][0] + V_hat[1][1]);
 
     // Eigenvalues ~ prop ~ Radius of most information
@@ -91,7 +92,7 @@ void main() {
     float lambda2 = m - sqrt( m * m - p );
 
     // Take the biggest value and take it as a simple radius (sqrt(lambda1), sqrt(lambda2)) for computing the bounding box.
-    const float gres = 4.f; // Higher make it more accurate, but make computation much slower.
+    const float gres = 2.f; // Higher make it more accurate, but make computation much slower.
 
     float radius = gres * sqrt(max(lambda1, lambda2));
 
