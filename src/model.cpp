@@ -3,6 +3,7 @@
 //
 
 #include "model.h"
+#include "app.h"
 
 #include <utility>
 
@@ -67,7 +68,6 @@ namespace splatwasm {
         glGenBuffers (1, &model.vbo_cov3d);
         glBindBuffer(GL_ARRAY_BUFFER, model.vbo_cov3d);
 
-        // There is a bug here...
         glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(0 * sizeof(float)));
         glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(3 * sizeof(float)));
         glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(6 * sizeof(float)));

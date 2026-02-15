@@ -41,11 +41,6 @@ namespace splatwasm {
             }
         #endif
 
-        // Disable Depth Test and Enable Blend
-        glDisable(GL_DEPTH_TEST);
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_ONE_MINUS_DST_ALPHA, GL_ONE);
-
         return true;
     }
 
@@ -76,6 +71,11 @@ namespace splatwasm {
 
         glClearColor(0.f,0.f,0.f,0.f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // Disable Depth Test and Enable Blend
+        glDisable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE_MINUS_DST_ALPHA, GL_ONE);
 
         float dt = float(app->time_curr_frame - app->time_last_frame)/1000.f;
 

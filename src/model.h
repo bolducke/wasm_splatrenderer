@@ -4,15 +4,29 @@
 
 #include <fmt/format.h>
 
-#include "model.fwd.h"
-#include "app.fwd.h"
-
 #include "splat.h"
 #include "camera.h"
+#include "utils.h"
 
 namespace splatwasm {
 
-// Could be a better name...
+    struct App;
+
+    struct Model {
+        Splat splat;
+
+        // Material & Attribute to bind - Do not need anything fancy for our use case.
+        GLuint program;
+        GLuint vao;
+
+        // Buffer Related Information to the splat;
+        GLuint vbo_position;
+        GLuint vbo_color;
+        GLuint vbo_opacity;
+        GLuint vbo_cov3d;
+    };
+
+    // Could be a better name...
     bool create_model(PathPrefix pp, Splat splat, Model &model);
 
     void update_buffers(Model &model);
